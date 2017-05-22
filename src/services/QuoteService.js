@@ -15,10 +15,11 @@ class QuoteService {
         'Authorization': 'Bearer ' + LoginStore.jwt
       }
     })
-      .then(function(response) {
-        QuoteActions.gotQuote(response);
-      });
+    .then(function(response) {
+      QuoteActions.gotQuote(response);
+    });
   }
+
 }
 
 export default new QuoteService()

@@ -6,12 +6,10 @@ import { Route, RouteHandler, Link } from 'react-router';
 import AuthService from '../services/AuthService'
 
 export default class AuthenticatedApp extends React.Component {
-
   constructor() {
-    super();
+    super()
     this.state = this._getLoginState();
   }
-
 
   _getLoginState() {
     return {
@@ -41,42 +39,40 @@ export default class AuthenticatedApp extends React.Component {
           </div>
           {this.headerItems}
         </nav>
-        <RouterHandler/>
+        <RouteHandler/>
       </div>
     );
   }
 
   logout(e) {
     e.preventDefault();
-    AuthService.logout;
+    AuthService.logout();
   }
 
   get headerItems() {
     if (!this.state.userLoggedIn) {
       return (
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <Link to="login">Login</Link>
-          </li>
-          <li>
-            <Link to="signup">Signup</Link>
-          </li>
-        </ul>
-      )
+      <ul className="nav navbar-nav navbar-right">
+        <li>
+          <Link to="login">Login</Link>
+        </li>
+        <li>
+          <Link to="signup">Signup</Link>
+        </li>
+      </ul>)
     } else {
       return (
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <Link to="home">Home</Link>
-          </li>
-          <li>
-            <Link to="quote">Quote</Link>
-          </li>
-          <li>
-            <a href="" onClick={this.logout}>Logout</a>
-          </li>
-        </ul>
-      )
+      <ul className="nav navbar-nav navbar-right">
+        <li>
+          <Link to="home">Home</Link>
+        </li>
+        <li>
+          <Link to="quote">Quote</Link>
+        </li>
+        <li>
+          <a href="" onClick={this.logout}>Logout</a>
+        </li>
+      </ul>)
     }
   }
 }

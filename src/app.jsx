@@ -13,7 +13,7 @@ var routes = (
     <Route name="login" handler={Login}/>
     <Route name="signup" handler={Signup}/>
     <Route name="home" path="/" handler={Home}/>
-    <Route name="quote" handler{Quote}/>
+    <Route name="quote" handler={Quote}/>
   </Route>
 );
 
@@ -28,3 +28,4 @@ if (jwt) {
 router.run(function (Handler) {
   React.render(<Handler />, document.getElementById('content'));
 });
+
